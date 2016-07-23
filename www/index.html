@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
+    <title></title>
+
+    <link href="lib/ionic/css/ionic.css" rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet">
+
+    <!-- IF using Sass (run gulp sass first), then uncomment below and remove the CSS includes above
+    <link href="css/ionic.app.css" rel="stylesheet">
+    -->
+
+    <!-- ionic/angularjs js -->
+    <script src="lib/ionic/js/ionic.bundle.js"></script>
+    <script src="js/ng-cordova.min.js"></script>
+    <!-- cordova script (this will be a 404 during development) -->
+    <script src="cordova.js"></script>
+
+    <!-- your app's js -->
+    <style>
+      p {
+        text-decoration: line-through;
+      }
+    </style>
+
+  </head>
+  <body ng-app="todo" ng-controller="sqlCtrl">
+
+    <ion-header-bar class="bar-energized">
+      <h1 class="title">Daily Todos</h1>
+    </ion-header-bar>
+
+    <ion-content class="has-footer">
+      <ion-list>
+        <div class="item item-divider">
+          Due tasks:
+        </div>
+        <ion-item ng-repeat="todo in todoList" item="todo" class="item-button-right">
+          <input ng-model="todo.done" ng-click="update(todo.id, todo.done)" type="checkbox" />
+          {{todo.task}}
+          <a class="button button-outline button-stable" ng-click="delete(todo.id)">
+            <i class="icon ion-trash-b"></i>
+          </a>
+        </ion-item>
+      </ion-list>
+      <ion-list>
+        <div class="item item-divider">
+          Completed tasks:
+        </div>
+        <ion-item ng-repeat="todo in todoDone" item="todo" class="item-button-right">
+          <p><input ng-model="todo.done" ng-click="update(todo.id, 'false')" type="checkbox" />
+          {{todo.task}}</p>
+          <a class="button button-outline button-stable" ng-click="delete(todo.id)">
+            <i class="icon ion-trash-b"></i>
+          </a>
+        </ion-item>
+      </ion-list>
+    </ion-content>
+
+    <ion-footer-bar class="bar">
+
+        <div class="item item-input-inset">
+            <label class="item-input-wrapper">
+              <input type="text" ng-model="todoInput" placeholder="Type in a new task" style="width:65vw">
+            </label>
+            <button class="button button-balanced" ng-click="insert(todoInput)" style="width:35vw">
+              Add
+            </button>
+        </div>
+
+    </ion-footer-bar>
+
+    <script src="js/app.js"></script>
+    <script src="js/controllers/main.js"></script>
+    <script src="js/controllers/sql.js"></script>
+
+  </body>
+</html>
