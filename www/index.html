@@ -7,19 +7,19 @@
 
     <link href="lib/ionic/css/ionic.css" rel="stylesheet">
     <link href="css/style.css" rel="stylesheet">
-
-    <!-- IF using Sass (run gulp sass first), then uncomment below and remove the CSS includes above
-    <link href="css/ionic.app.css" rel="stylesheet">
-    -->
-
     <!-- ionic/angularjs js -->
     <script src="lib/ionic/js/ionic.bundle.js"></script>
+    <!-- ngCordova js -->
     <script src="js/ng-cordova.min.js"></script>
     <!-- cordova script (this will be a 404 during development) -->
     <script src="cordova.js"></script>
 
-    <!-- your app's js -->
     <style>
+      body {
+        color: #2d3339;
+        font-family: "Varela Round";
+        background: #edeff0;
+        font-size: 20px; }
       p {
         text-decoration: line-through;
       }
@@ -27,6 +27,7 @@
 
   </head>
   <body ng-app="todo" ng-controller="sqlCtrl">
+
 
     <ion-header-bar class="bar-energized">
       <h1 class="title">Daily Todos</h1>
@@ -40,9 +41,9 @@
         <ion-item ng-repeat="todo in todoList" item="todo" class="item-button-right">
           <input ng-model="todo.done" ng-click="update(todo.id, todo.done)" type="checkbox" />
           {{todo.task}}
-          <a class="button button-outline button-stable" ng-click="delete(todo.id)">
-            <i class="icon ion-trash-b"></i>
-          </a>
+          <button class="button button-outline button-stable" ng-click="delete(todo.id)">
+            <i class="icon ion-trash-a"></i>
+          </button>
         </ion-item>
       </ion-list>
       <ion-list>
@@ -52,9 +53,9 @@
         <ion-item ng-repeat="todo in todoDone" item="todo" class="item-button-right">
           <p><input ng-model="todo.done" ng-click="update(todo.id, 'false')" type="checkbox" />
           {{todo.task}}</p>
-          <a class="button button-outline button-stable" ng-click="delete(todo.id)">
-            <i class="icon ion-trash-b"></i>
-          </a>
+          <button class="button button-outline button-stable" ng-click="delete(todo.id)">
+            <i class="icon ion-trash-a"></i>
+          </button>
         </ion-item>
       </ion-list>
     </ion-content>
@@ -75,6 +76,5 @@
     <script src="js/app.js"></script>
     <script src="js/controllers/main.js"></script>
     <script src="js/controllers/sql.js"></script>
-
   </body>
 </html>
