@@ -62,9 +62,11 @@ app.controller("sqlCtrl", function($scope, $cordovaSQLite, $timeout){
     });
   };
 
+  // load tasks when page is just opened
   $timeout(function () {
-    $scope.select();
-  }, 1000);
-
+    if(!$scope.todoDone && !$scope.todoList){ //checking if there is any tasks loaded
+        $scope.select();
+    }
+  }, 100);
 
 });

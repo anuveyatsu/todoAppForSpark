@@ -39,11 +39,19 @@
           Due tasks:
         </div>
         <ion-item ng-repeat="todo in todoList" item="todo" class="item-button-right">
-          <input ng-model="todo.done" ng-click="update(todo.id, todo.done)" type="checkbox" />
-          {{todo.task}}
-          <button class="button button-outline button-stable" ng-click="delete(todo.id)">
-            <i class="icon ion-trash-a"></i>
-          </button>
+          <div class="row item-button-right">
+
+              <label class="checkbox checkbox-assertive">
+                <input ng-model="todo.done" ng-click="update(todo.id, todo.done)" type="checkbox" />
+              </label>
+              <span style="padding:12px">{{todo.task}}</span>
+
+
+              <button class="button button-outline button-stable" ng-click="delete(todo.id)" style="margin-top:19px">
+                <i class="icon ion-trash-a"></i>
+              </button>
+
+          </div>
         </ion-item>
       </ion-list>
       <ion-list>
@@ -51,11 +59,16 @@
           Completed tasks:
         </div>
         <ion-item ng-repeat="todo in todoDone" item="todo" class="item-button-right">
-          <p><input ng-model="todo.done" ng-click="update(todo.id, 'false')" type="checkbox" />
-          {{todo.task}}</p>
-          <button class="button button-outline button-stable" ng-click="delete(todo.id)">
-            <i class="icon ion-trash-a"></i>
-          </button>
+          <div class="row item-button-right">
+            <label class="checkbox">
+              <input ng-model="todo.done" ng-click="update(todo.id, 'false')" type="checkbox" />
+
+            </label>
+            <span style="text-decoration: line-through; padding: 12px;">{{todo.task}}</span>
+            <button class="button button-outline button-stable" ng-click="delete(todo.id)" style="margin-top:19px">
+              <i class="icon ion-trash-a"></i>
+            </button>
+          </div>
         </ion-item>
       </ion-list>
     </ion-content>
