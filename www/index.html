@@ -17,7 +17,7 @@
     <style>
       body {
         color: #2d3339;
-        font-family: "Varela Round";
+        font-family: "Helvetica Neue";
         background: #edeff0;
         font-size: 20px; }
       p {
@@ -29,7 +29,7 @@
   <body ng-app="todo" ng-controller="sqlCtrl">
 
 
-    <ion-header-bar class="bar-energized">
+    <ion-header-bar class="bar-calm">
       <h1 class="title">Daily Todos</h1>
     </ion-header-bar>
 
@@ -47,7 +47,7 @@
               <span style="padding:12px">{{todo.task}}</span>
 
 
-              <button class="button button-outline button-stable" ng-click="delete(todo.id)" style="margin-top:19px">
+              <button class="button button-outline button-assertive" ng-click="delete(todo.id)" style="margin-top:19px">
                 <i class="icon ion-trash-a"></i>
               </button>
 
@@ -65,7 +65,7 @@
 
             </label>
             <span style="text-decoration: line-through; padding: 12px;">{{todo.task}}</span>
-            <button class="button button-outline button-stable" ng-click="delete(todo.id)" style="margin-top:19px">
+            <button class="button button-outline button-assertive" ng-click="delete(todo.id)" style="margin-top:19px">
               <i class="icon ion-trash-a"></i>
             </button>
           </div>
@@ -79,7 +79,7 @@
             <label class="item-input-wrapper">
               <input type="text" ng-model="todoInput" placeholder="Type in a new task" style="width:65vw">
             </label>
-            <button class="button button-balanced" ng-click="insert(todoInput)" style="width:35vw">
+            <button class="button button-energized" ng-click="insert(todoInput)" style="width:35vw">
               Add
             </button>
         </div>

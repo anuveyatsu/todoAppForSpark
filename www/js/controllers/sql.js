@@ -64,9 +64,8 @@ app.controller("sqlCtrl", function($scope, $cordovaSQLite, $timeout){
 
   // load tasks when page is just opened
   $timeout(function () {
-    if(!$scope.todoDone && !$scope.todoList){ //checking if there is any tasks loaded
         $scope.select();
-    }
+        console.log("autoloaded");
   }, 100);
 
 });
